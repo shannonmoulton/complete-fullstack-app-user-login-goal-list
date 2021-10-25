@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bucket List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Architects+Daughter&family=Dancing+Script:wght@500&family=Zen+Kaku+Gothic+New&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="formContainer">
+      <div class="form">
+        <div class="formItem">
+          <h1 class="formHeading">Add to your Bucket list.</h1>
+          <form action="/profile" method="POST">
+            <label for="category">Choose category:</label>
+            <select id="category" name="category">
+              <option value="Travel">Travel</option>
+              <option value="Relationships">Relationships</option>
+              <option value="Career">Career</option>
+              <option value="Financial">Financial</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Contribution">Contribution</option>
+              <option value="Creativity">Creativity</option></select
+            ><br />
+
+            <input
+              class="formInput"
+              type="text"
+              id="idea"
+              name="idea"
+              placeholder="What do you want to do?"
+            /><br />
+            <input
+              class="formInput notes"
+              type="text"
+              id="notes"
+              name="notes"
+              placeholder="Notes:"
+            /><br /><br />
+            <button class="add" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

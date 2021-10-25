@@ -1,0 +1,132 @@
+body {
+  background-color: rgb(250, 92, 4);
+  display: flex;
+}
+main {
+  width: 93%;
+  height: 655px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* border: 3px solid white; */
+  background-image: url("/img/background.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: unset;
+  color: white;
+  display: flex;
+}
+.fa-trash {
+  color: white;
+}
+section {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 40px;
+}
+h1 {
+  font-family: "Anton", sans-serif;
+  font-size: 5rem;
+}
+h2 {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 4.5rem;
+}
+.btn {
+  color: white;
+  background-color: rgb(250, 92, 4);
+  margin-top: 50px;
+  margin-left: 10px;
+}
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.fa {
+  margin-right: 5px;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.btn-warning {
+  background-color: white;
+  color: black;
+}
+.formContainer {
+  height: 650px;
+  width: 55%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  color: white;
+  font-size: 1rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+.form {
+  height: 567px;
+  width: 100%;
+  border: 2px solid white;
+  border-radius: 25px;
+  background-color: rgb(250, 92, 4);
+  align-self: center;
+}
+.formItem {
+  height: 465px;
+  width: 85%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.formInput {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+.formHeading {
+  font-family: "Anton", sans-serif;
+  font-size: 2.5rem;
+}
+select {
+  font-size: 1rem;
+  margin-left: 10px;
+}
+.add {
+  width: 13%;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  background-color: rgb(250, 92, 4);
+  font-size: 1rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  position: absolute;
+  top: 89%;
+  left: 85%;
+  transition-duration: 0.4s;
+}
+.add:hover {
+  color: rgb(250, 92, 4);
+  background-color: white;
+}
+.notes {
+  height: 100px;
+}
+.addToList {
+  position: absolute;
+  left: 85%;
+}
