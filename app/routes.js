@@ -1,4 +1,4 @@
-module.exports = function (app, passport, db, listItemModel) {
+module.exports = function (app, passport, db, listItemModel, ObjectId) {
   app.get("/", function (req, res) {
     res.render("index.ejs");
   });
@@ -34,7 +34,7 @@ module.exports = function (app, passport, db, listItemModel) {
   });
 
   app.get("/create", isLoggedIn, function (req, res) {
-    db.collection("listItems")
+    db.collection("listitems")
       .find()
       .toArray((err, result) => {
         if (err) return console.log(err);
@@ -51,6 +51,7 @@ module.exports = function (app, passport, db, listItemModel) {
     listItem.category = req.body.category;
     listItem.idea = req.body.idea;
     listItem.notes = req.body.notes;
+    listItem.completed = false
     var response = listItem
       .save()
       .then((response) => {
@@ -63,57 +64,26 @@ module.exports = function (app, passport, db, listItemModel) {
     return res.redirect("/profile");
   });
 
-  // app.get("/create", isLoggedIn, function (req, res) {
-  //   db.collection("listItems")
-  //     .find()
-  //     .toArray((err, result) => {
-  //       if (err) return console.log(err);
-  //       res.render("create.ejs", {
-  //         user: req.user,
-  //         listItems: result,
-  //       });
-  //     });
-  // });
+  app.put('/update', (req, res) => {
+    db.collection('listitems')
+    .findOneAndUpdate({_id: ObjectId(req.body.id)}, {
+      $set: {
+        completed: true
+      }
+    }, {
+      sort: {_id: -1},
+      upsert: true
+    }, (err, result) => {
+      if (err) return res.send(err)
+      res.send(result)
+    })
+  })
 
-  // app.post("/profile", (req, res) => {
-  //   var listItem = new listItemModel();
-  //   listItem.ownerId = req.user._id;
-  //   listItem.category = req.body.category;
-  //   listItem.idea = req.body.idea;
-  //   listItem.notes = req.body.notes;
-  //   var response = listItem
-  //     .save()
-  //     .then((response) => {
-  //       return response;
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       return error;
-  //     });
-  //   return res.redirect("/profile");
-  //   ----
-  // db.collection("listItems")
-  //   .save({
-  //     category: req.body.category,
-  //     idea: req.body.idea,
-  //     notes: req.body.notes,
-  //   })
-  //   .then((response) => {
-  //     return response;
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //     return error;
-  //   });
-  // return res.redirect("/log");
-  // });
-
-  app.delete("/profile", (req, res) => {
-    db.collection("listItems").findOneAndDelete(
+  app.delete("/listItems", (req, res) => {
+    db.collection("listitems").findOneAndDelete(
       {
-        category: req.body.category,
-        idea: req.body.idea,
-        notes: req.body.notes,
+        _id: ObjectId(req.body.id)
+        
       },
       (err, result) => {
         if (err) return res.send(500, err);

@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var port = process.env.PORT || 3030;
 const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectID;
 var mongoose = require("mongoose");
 var passport = require("passport");
 var flash = require("connect-flash");
@@ -19,7 +20,8 @@ mongoose.connect(configDB.url, (err, database) => {
     app,
     passport,
     database,
-    listItemModel
+    listItemModel,
+    ObjectId
   );
 });
 

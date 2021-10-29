@@ -4,5 +4,6 @@ var listItemSchema = mongoose.Schema({
   category: String,
   idea: String,
   notes: String,
+  completed: Boolean
 });
 module.exports = mongoose.model("listItems", listItemSchema);
